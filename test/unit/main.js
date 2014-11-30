@@ -10,14 +10,14 @@ describe('controllers', function(){
   }));
 
   it('should define more than 5 awesome things', inject(function($controller) {
-    expect(scope.awesomeThings).toBeUndefined();
+    expect(scope.users).toBeUndefined();
 
     $controller('MainCtrl', {
       $scope: scope
   	});
 
-    expect(angular.isArray(scope.awesomeThings)).toBeTruthy();
-    expect(scope.awesomeThings.length > 5).toBeTruthy();
+    expect(angular.isArray(scope.users)).toBeTruthy();
+    expect(scope.users.length).toBe(2);
   }));
 
 
@@ -30,7 +30,7 @@ describe("A suite", function() {
 
   it("The 'toBeCloseTo' matcher is for precision math comparison", function() {
     var pi = 3.1415926,
-      e = 25.78;
+      e = 2.78;
 
     expect(pi).not.toBeCloseTo(e, 2);
     expect(pi).toBeCloseTo(e, 0);

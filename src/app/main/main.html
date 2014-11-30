@@ -5,24 +5,60 @@
     <div class="panel">
       <h1>'Allo, 'Allo!</h1>
       <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
+
       <p>Always a pleasure scaffolding your apps.</p>
+
       <p><a class="button radius" ng-href="#">Splendid!</a></p>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="large-4 columns" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-    <div class="th">
-      <img class="right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-      <div class="caption">
-        <h3>{{awesomeThing.title}}</h3>
-        <p>{{awesomeThing.description}}</p>
-        <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+
+<table class="table table-bordered table-hover table-condensed">
+  <thead>
+  <tr>
+    <th style="width:35%">Firstname</th>
+    <th style="width:35%">Lastname</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="user in users">
+    <td>
+        <span editable-text="user.firstName" e-name="firstName" e-form="rowform" e-required>
+          {{ user.firstName || 'empty' }}
+        </span>
+    </td>
+    <td>
+        <span editable-text="user.lastName" e-name="lastName" e-form="rowform" e-required>
+          {{ user.lastName || 'empty' }}
+        </span>
+    </td>
+    <td style="white-space: nowrap">
+      <!-- form -->
+      <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible"
+            class="form-buttons form-inline" shown="inserted == user">
+        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+          save
+        </button>
+        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+          cancel
+        </button>
+      </form>
+      <div class="buttons" ng-show="!rowform.$visible">
+        <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+        <button class="btn btn-danger" ng-click="removeUser($index)">del</button>
       </div>
-    </div>
-  </div>
-</div>
+    </td>
+  </tbody>
+  <tfoot>
+  <tr>
+    <button class="btn btn-default" ng-click="addUser()">Add row</button>
+  </tr>
+  </tfoot>
+
+
+</table>
+
 
 <div class="row">
   <div class="large-12 columns">

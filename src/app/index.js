@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mecoNgApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+angular.module('mecoNgApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router','xeditable'])
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/',
@@ -10,5 +10,5 @@ angular.module('mecoNgApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 
       });
 
     $urlRouterProvider.otherwise('/');
-  })
+  }])
 ;
