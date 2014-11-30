@@ -20,6 +20,20 @@ describe('controllers', function(){
     expect(scope.users.length).toBe(2);
   }));
 
+  describe("add user", function () {
+
+    it("should add empty user to the collection", inject(function($controller) {
+      $controller('MainCtrl', {
+        $scope: scope
+      });
+      scope.addUser();
+      expect(scope.users.length).toBe(3);
+      expect(scope.users[2].id).toBe(3)
+      expect(scope.users[2].firstName).toBe('');
+      expect(scope.users[2].lastName).toBe('');
+    }));
+  });
+
 
 });
 
