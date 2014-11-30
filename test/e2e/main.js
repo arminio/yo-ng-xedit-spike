@@ -6,9 +6,9 @@ describe('The main view', function () {
     browser.get('http://localhost:3000/index.html');
   });
 
-  it('list more than 5 awesome things', function () {
-    element.all(by.repeater('awesomeThing in awesomeThings')).count().then(function(count) {
-      expect(count > 5).toBeTruthy();
+  it('list all the users', function () {
+    element.all(by.repeater('user in users')).count().then(function(count) {
+      expect(count).toBe(2);
     });
   });
 
