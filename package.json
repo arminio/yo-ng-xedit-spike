@@ -1,7 +1,9 @@
 {
   "name": "mecoNgApp",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower-requirejs": "^1.1.2"
+  },
   "devDependencies": {
     "gulp": "^3.8.0",
     "gulp-autoprefixer": "^0.0.6",
